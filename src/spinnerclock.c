@@ -171,17 +171,14 @@ void spinners_create(Layer* layer) {
             bgColor = GColorBlack;
             fgColor = GColorRed;
             break;
-        case WATCH_INFO_COLOR_TIME_STEEL_SILVER:
-            bgColor = GColorBlack;
-            fgColor = GColorLightGray;
-            break;
         case WATCH_INFO_COLOR_TIME_STEEL_GOLD:
             bgColor = GColorBlack;
             fgColor = GColorBrass;
             break;
         case WATCH_INFO_COLOR_TIME_STEEL_BLACK:
+        case WATCH_INFO_COLOR_TIME_BLACK:
             bgColor = GColorBlack;
-            fgColor = GColorDarkGray;
+            fgColor = GColorLightGray;
             break;
 #endif //PBL_COLOR
         default:
