@@ -1,7 +1,8 @@
 #include "spinnerclock.h"
 
 #define TEXT_HEIGHT 28
-#define TOP_Y 47
+#define TEXT_TAIL_HEIGHT 10
+#define TOP_Y 37
 #define CENTER_X 0
 #define LEFT_X -144
 #define RIGHT_X 144
@@ -38,7 +39,7 @@ static TextLayer* create_spinner_text(int spinner, int x, int y) {
     // Create the TextLayer using specified coordinates and geometry from parent layer.
     TextLayer* layer = text_layer_create((GRect) {
                 .origin = { x, y },
-                .size = { layer_get_bounds(parentLayer).size.w, TEXT_HEIGHT}
+                .size = { layer_get_bounds(parentLayer).size.w, TEXT_HEIGHT + TEXT_TAIL_HEIGHT}
             });
     // APP_LOG(APP_LOG_LEVEL_DEBUG, "Created text layer: %p", layer);
     // Set the text to centered.
@@ -168,11 +169,11 @@ void spinners_create(Layer* layer) {
 #ifdef PBL_COLOR
         case WATCH_INFO_COLOR_TIME_RED:
             bgColor = GColorBlack;
-            fgColor = GColorRed;
+            fgColor = GColorDarkCandyAppleRed;
             break;
         case WATCH_INFO_COLOR_TIME_STEEL_GOLD:
             bgColor = GColorBlack;
-            fgColor = GColorBrass;
+            fgColor = GColorFromRGB(219,195,127);
             break;
         case WATCH_INFO_COLOR_TIME_STEEL_BLACK:
         case WATCH_INFO_COLOR_TIME_BLACK:
