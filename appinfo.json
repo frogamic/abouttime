@@ -1,0 +1,23 @@
+{
+  "uuid": "b702d8d4-9880-4598-9462-7af0989c938b",
+  "shortName": "AboutTime",
+  "longName": "About time",
+  "companyName": "frogamic",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+  },
+  "resources": {
+    "media": [ {
+        "menuIcon" : true,
+        "type" : "png",
+        "name" : "IMAGE_MENU_ICON",
+        "file" : "menuicon.png"
+    }
+    ]
+  }
+}
