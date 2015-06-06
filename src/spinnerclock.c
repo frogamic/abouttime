@@ -1,8 +1,7 @@
 #include "spinnerclock.h"
 
 #define TEXT_HEIGHT 28
-#define TEXT_TAIL_HEIGHT 10
-#define TOP_Y 42
+#define TOP_Y 47
 #define CENTER_X 0
 #define LEFT_X -144
 #define RIGHT_X 144
@@ -39,7 +38,7 @@ static TextLayer* create_spinner_text(int spinner, int x, int y) {
     // Create the TextLayer using specified coordinates and geometry from parent layer.
     TextLayer* layer = text_layer_create((GRect) {
                 .origin = { x, y },
-                .size = { layer_get_bounds(parentLayer).size.w, TEXT_HEIGHT + TEXT_TAIL_HEIGHT}
+                .size = { layer_get_bounds(parentLayer).size.w, TEXT_HEIGHT}
             });
     // APP_LOG(APP_LOG_LEVEL_DEBUG, "Created text layer: %p", layer);
     // Set the text to centered.
