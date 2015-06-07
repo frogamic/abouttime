@@ -30,9 +30,9 @@ static const char** spinnerText[3] = {text0, text1, text2};
 
 /** Creates a new TextLayer at specified x and y with same width as parent layer and height of text.
  *  Must be called after spinners_create().
- *  \input  text    Pointer to a string to set the layers text to.
- *  \input  x       The x value of the left edge of the layer.
- *  \input  y       The y value of the top edge of the layer.
+ *  \param  text    Pointer to a string to set the layers text to.
+ *  \param  x       The x value of the left edge of the layer.
+ *  \param  y       The y value of the top edge of the layer.
  *  \return         A pointer to the newly created TextLayer object.
  */
 static TextLayer* create_spinner_text(int spinner, int x, int y) {
