@@ -11,11 +11,20 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 static void window_load(Window *window) {
     Layer *windowLayer = window_get_root_layer(window);
-    spinners_create(windowLayer);
+
+    time_t temp = time(NULL);
+    struct tm t = *(localtime(&temp));
+
+    spinners_create(windowLayer, &t);
+
+    if (t.tm_min %5 == 2 && (t.tm_sec * 1000) < 30000)
+        timer = app_timer_register(30000 - (t.tm_sec * 1000), (AppTimerCallback) spinners_tick, NULL);
+    tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 }
 
 static void window_unload(Window *window) {
     spinners_destroy();
+    tick_timer_service_unsubscribe();
     if (timer)
     {
         app_timer_cancel(timer);
@@ -30,7 +39,6 @@ static void init(void) {
         .unload = window_unload,
     });
 
-    tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 
     const bool animated = true;
     window_stack_push(window, animated);
@@ -38,7 +46,6 @@ static void init(void) {
 
 static void deinit(void) {
     window_destroy(window);
-    tick_timer_service_unsubscribe();
 }
 
 int main(void) {

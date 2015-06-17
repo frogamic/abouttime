@@ -149,7 +149,7 @@ void spinners_tick(void* data) {
     spinner_increase(0, x, targetx);
 }
 
-void spinners_create(Layer* layer) {
+void spinners_create(Layer* layer, struct tm* t) {
     // Save pointer to parent layer.
     parentLayer = layer;
     GColor bgColor;
@@ -187,10 +187,6 @@ void spinners_create(Layer* layer) {
     }
     // Set the background color of the parent layer
     window_set_background_color(layer_get_window(layer), bgColor);
-
-    // Get current time
-    time_t temp = time(NULL);
-    struct tm* t = localtime(&temp);
 
     // Set spinner values for current time.
     if (t->tm_sec >= 30)

@@ -16,8 +16,9 @@ void spinners_tick(void* data);
 
 /** Creates the text layers, initialises all spinner values, and sets readout to current time.
  *  \param  layer   A pointer to the parent layer on which to draw the spinners.
+ *  \param  t       A pointer to a struct holding the current time.
  */
-void spinners_create(Layer* layer);
+void spinners_create(Layer* layer, struct tm* t);
 
 /** Destroys all resources associated with the spinners.
  */
