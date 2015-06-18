@@ -9,10 +9,9 @@
 #define ANIMATION_DURATION 2000
 
 /** Increments the spinners, should be called every 2.5 minutes.
- *  \param  data    dummy pointer to NULL to maintain compatibility with pebble API.
  *  \brief Must be called after a call to spinners_create().
  */
-void spinners_tick(void* data);
+void spinners_tick(void);
 
 /** Creates the text layers, initialises all spinner values, and sets readout to current time.
  *  \param  layer   A pointer to the parent layer on which to draw the spinners.

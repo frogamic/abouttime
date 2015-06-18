@@ -127,7 +127,7 @@ static void spinner_increase(int spinner, int newx, int targetx) {
 /** Increases the top spinner of the three. Visually decreases the spinner and
  *  triggers the middle spinner where necessary.
  */
-void spinners_tick(void* data) {
+void spinners_tick(void) {
     int x, targetx;
     // At these values the middle spinner must also be increased.
     if (spinnerValue[0] == 0 || spinnerValue[0] == 11) {
