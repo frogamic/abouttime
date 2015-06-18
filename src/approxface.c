@@ -13,9 +13,13 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
     if (tick_time->tm_min % 5 == 2)
     {
         if (tick_time->tm_sec > 0 && tick_time->tm_sec < 30)
+        {
             timer = app_timer_register(30000 - (tick_time->tm_sec * 1000), (AppTimerCallback) clock_tick, NULL);
-        else
+        }
+        else if (tick_time->tm_sec == 0)
+        {
             timer = app_timer_register(30000 - ANIMATION_DURATION / 2, (AppTimerCallback) clock_tick, NULL);
+        }
     }
 }
 
