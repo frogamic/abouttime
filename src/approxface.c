@@ -4,9 +4,19 @@
 static Window *window;
 static AppTimer* timer = NULL;
 
+static void clock_tick (void* data) {
+    spinners_tick();
+    timer = NULL;
+}
+
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
     if (tick_time->tm_min % 5 == 2)
-        timer = app_timer_register(30000 - ANIMATION_DURATION / 2, (AppTimerCallback) spinners_tick, NULL);
+    {
+        if (tick_time->tm_sec > 0 && tick_time->tm_sec < 30)
+            timer = app_timer_register(30000 - (tick_time->tm_sec * 1000), (AppTimerCallback) clock_tick, NULL);
+        else
+            timer = app_timer_register(30000 - ANIMATION_DURATION / 2, (AppTimerCallback) clock_tick, NULL);
+    }
 }
 
 static void window_load(Window *window) {
@@ -17,8 +27,6 @@ static void window_load(Window *window) {
 
     spinners_create(windowLayer, &t);
 
-    if (t.tm_min %5 == 2 && (t.tm_sec * 1000) < 30000)
-        timer = app_timer_register(30000 - (t.tm_sec * 1000), (AppTimerCallback) spinners_tick, NULL);
     tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 }
 
