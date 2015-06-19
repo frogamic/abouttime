@@ -3,7 +3,7 @@
   "shortName": "About time",
   "longName": "About time",
   "companyName": "frogamic",
-  "versionLabel": "1.3",
+  "versionLabel": "2.0",
   "sdkVersion": "3",
   "targetPlatforms": ["aplite", "basalt"],
   "capabilities": [
