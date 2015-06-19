@@ -13,6 +13,21 @@
     "watchface": true
   },
   "appKeys": {
+      "Configured": 0,
+      "ShowBatt": 2,
+      "Center": 0,
+      "Vibe": 0,
+      "ColorRand": 0,
+      "ColorBG": 255,
+      "Color1": 192,
+      "Color2": 192,
+      "Color3": 192,
+      "Color4": 0,
+      "Color5": 0,
+      "Color6": 0,
+      "Color7": 0,
+      "Color8": 0,
+      "Color9": 0
   },
   "resources": {
     "media": [ {
