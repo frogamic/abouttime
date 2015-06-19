@@ -6,6 +6,9 @@
   "versionLabel": "1.3",
   "sdkVersion": "3",
   "targetPlatforms": ["aplite", "basalt"],
+  "capabilities": [
+      "configurable"
+  ],
   "watchapp": {
     "watchface": true
   },

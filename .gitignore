@@ -4,3 +4,6 @@ build
 
 # Ignore waf lock file
 .lock-waf*
+
+# Ignore automatically generated js
+src/js/pebble-js-app.js
